@@ -1,0 +1,22 @@
+[project]
+name = "langgraph-launchpad"
+version = "0.1.0"
+authors = [{ name = "Your Name" }]
+description = "REST API base for LangGraph multi-agent systems with SSE streaming"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.112",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "sqlalchemy>=2.0",
+  "aiosqlite>=0.20",
+  "langgraph>=0.2.30",       # adjust as needed
+  "langchain-core>=0.3.0",   # for Message types, etc.
+]
+
+[tool.uv]
+package = true
+
+[tool.uv.scripts]
+api = "uvicorn api.main:app --reload --port 8000"
