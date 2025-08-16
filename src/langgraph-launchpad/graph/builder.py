@@ -86,6 +86,66 @@ def call_chatbot(question: str, thread_id: int, reasoning: bool = False) -> str:
     except Exception as e:
         logger.error("Chatbot call failed", error=str(e), thread_id=thread_id)
         raise GraphExecutionException(
+            message=f"Failed to stream message in thread {thread_id}",
+            original_error=e
+        )
+
+
+def get_thread_messages(thread_id: int) -> List[BaseMessage]:
+    """
+    Get all messages from a thread's conversation history.
+    
+    Args:
+        thread_id: The thread ID
+    
+    Returns:
+        List of messages in the thread
+    """
+    try:
+        config = {"configurable": {"thread_id": str(thread_id)}}
+        state = graph.get_state(config=config)
+        
+        if state and state.values:
+            return state.values.get("messages", [])
+        
+        return []
+    
+    except Exception as e:
+        logger.error("Failed to get thread messages", error=str(e), thread_id=thread_id)
+        return []
+
+
+def clear_thread_history(thread_id: int) -> bool:
+    """
+    Clear the conversation history for a thread.
+    
+    Args:
+        thread_id: The thread ID
+    
+    Returns:
+        True if successful, False otherwise
+    """
+    try:
+        config = {"configurable": {"thread_id": str(thread_id)}}
+        
+        # Reset the thread state
+        graph.update_state(
+            config,
+            {
+                "messages": [],
+                "user_question": "",
+                "reasoning": False,
+                "current_step": "cleared",
+                "metadata": {},
+            }
+        )
+        
+        logger.info("Thread history cleared", thread_id=thread_id)
+        return True
+    
+    except Exception as e:
+        logger.error("Failed to clear thread history", error=str(e), thread_id=thread_id)
+        return FalseExecutionException(
             message=f"Failed to process message in thread {thread_id}",
             original_error=e
         )

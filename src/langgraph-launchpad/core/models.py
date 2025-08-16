@@ -1,13 +1,7 @@
-from datetime import datetime
-from typing import TYPE_CHECKING
-
 from sqlalchemy import Column, DateTime, Integer, String
 from sqlalchemy.sql import func
 
 from .database import Base
-
-if TYPE_CHECKING:
-    pass
 
 
 class Thread(Base):
