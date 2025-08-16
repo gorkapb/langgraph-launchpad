@@ -4,18 +4,18 @@ import structlog
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from ...core.database import get_db
-from ...core.models import Thread
-from ...utils.exceptions import ThreadNotFoundException
-from ..models.requests import CreateThreadRequest, UpdateThreadRequest
-from ..models.responses import (
+from core.database import get_db
+from core.models import Thread
+from utils.exceptions import ThreadNotFoundException
+from api.models.requests import CreateThreadRequest, UpdateThreadRequest
+from api.models.responses import (
     AllThreadsResponse,
     CreateThreadResponse,
     ThreadHistoryResponse,
     ThreadInfo,
     ErrorResponse,
 )
-from ...graph.builder import get_thread_messages
+from graph.builder import get_thread_messages
 
 router = APIRouter(prefix="/threads", tags=["threads"])
 logger = structlog.get_logger()

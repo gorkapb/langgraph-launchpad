@@ -1,6 +1,4 @@
 import requests
-import time
-import json
 
 BASE_URL = "http://localhost:8000"
 

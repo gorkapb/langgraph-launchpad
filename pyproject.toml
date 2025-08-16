@@ -3,7 +3,7 @@ name = "langgraph-launchpad"
 version = "0.1.0"
 description = "A professional FastAPI-based REST API for LangGraph multi-agent systems"
 authors = [
-    { name = "Your Name", email = "your.email@example.com" }
+    { name = "Gorka Pineda", email = "gorkapineda@gmail.com" }
 ]
 readme = "README.md"
 license = { text = "MIT" }
@@ -33,7 +33,9 @@ dependencies = [
     "alembic>=1.12.1",
     
     # LangGraph and LangChain
-    "langgraph>=0.2.0",
+    "langgraph",
+    "langgraph-checkpoint-sqlite",
+    "langgraph-checkpoint-postgres",
     "langchain-core>=0.3.0",
     "langchain-openai>=0.2.0",
     
@@ -72,10 +74,9 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/langgraph-launchpad"
-Documentation = "https://github.com/yourusername/langgraph-launchpad#readme"
-Repository = "https://github.com/yourusername/langgraph-launchpad"
-Issues = "https://github.com/yourusername/langgraph-launchpad/issues"
+Homepage = "https://github.com/gorkapb/langgraph-launchpad"
+Documentation = "https://github.com/gorkapb/langgraph-launchpad#readme"
+Repository = "https://github.com/gorkapb/langgraph-launchpad"
 
 [project.scripts]
 langgraph-launchpad = "langgraph_launchpad.main:main"

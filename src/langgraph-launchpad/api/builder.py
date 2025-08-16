@@ -5,10 +5,10 @@ import structlog
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
-from .routes import chat, threads, users
-from ..config.settings import get_settings
-from ..core.database import create_tables
-from ..utils.logging import setup_logging
+from api.routes import chat, threads, users
+from config.settings import get_settings
+from core.database import create_tables
+from utils.logging import setup_logging
 
 
 @asynccontextmanager

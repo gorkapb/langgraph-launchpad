@@ -2,16 +2,16 @@ import structlog
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from ...core.database import get_db
-from ...core.models import Thread
-from ...utils.exceptions import UserNotFoundException
-from ..models.responses import (
+from core.database import get_db
+from core.models import Thread
+from utils.exceptions import UserNotFoundException
+from api.models.responses import (
     AllUsersResponse,
     UserThreadsResponse,
     ThreadInfo,
     ErrorResponse,
 )
-from ...graph.builder import get_thread_messages
+from graph.builder import get_thread_messages
 
 router = APIRouter(prefix="/users", tags=["users"])
 logger = structlog.get_logger()

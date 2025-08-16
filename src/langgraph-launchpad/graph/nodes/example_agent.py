@@ -2,8 +2,8 @@ import structlog
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 
-from ...config.settings import get_settings
-from ..state import GraphState
+from config.settings import get_settings
+from graph.state import GraphState
 
 logger = structlog.get_logger()
 settings = get_settings()

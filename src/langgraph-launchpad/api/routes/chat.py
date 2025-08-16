@@ -6,12 +6,12 @@ from fastapi import APIRouter, Depends, HTTPException, WebSocket, WebSocketDisco
 from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 
-from ...core.database import get_db
-from ...core.models import Thread
-from ...utils.exceptions import GraphExecutionException, ThreadNotFoundException
-from ..models.requests import ChatRequest
-from ..models.responses import ChatResponse, ErrorResponse
-from ...graph.builder import call_chatbot, stream_chatbot
+from core.database import get_db
+from core.models import Thread
+from utils.exceptions import GraphExecutionException, ThreadNotFoundException
+from api.models.requests import ChatRequest
+from api.models.responses import ChatResponse, ErrorResponse
+from graph.builder import call_chatbot, stream_chatbot
 
 router = APIRouter(tags=["chat"])
 logger = structlog.get_logger()
