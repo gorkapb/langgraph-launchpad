@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from src.langgraph_launchpad.core.models import Thread
+from langgraph_launchpad.core.models import Thread
 
 
 def test_create_thread(client: TestClient, sample_thread_data):

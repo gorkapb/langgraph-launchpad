@@ -7,8 +7,8 @@ from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
-from src.langgraph_launchpad.core.database import Base, get_db
-from src.langgraph_launchpad.main import create_app
+from langgraph_launchpad.core.database import Base, get_db
+from langgraph_launchpad.main import create_app
 
 
 @pytest.fixture

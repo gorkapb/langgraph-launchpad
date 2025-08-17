@@ -1,7 +1,7 @@
 from langgraph.checkpoint.postgres import PostgresSaver
 from langgraph.checkpoint.sqlite import SqliteSaver
 
-from config.settings import get_settings
+from langgraph_launchpad.config.settings import get_settings
 
 
 def create_checkpointer():

@@ -1,7 +1,7 @@
 import uvicorn
 
-from api.builder import create_app
-from config.settings import get_settings
+from langgraph_launchpad.api.app import create_app
+from langgraph_launchpad.config.settings import get_settings
 
 
 def main() -> None:

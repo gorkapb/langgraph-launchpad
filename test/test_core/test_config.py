@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from src.langgraph_launchpad.config.settings import Settings, get_settings
+from langgraph_launchpad.config.settings import Settings, get_settings
 
 
 def test_settings_defaults():

@@ -2,8 +2,8 @@ import pytest
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from src.langgraph_launchpad.core.database import create_tables
-from src.langgraph_launchpad.core.models import Thread
+from langgraph_launchpad.core.database import create_tables
+from langgraph_launchpad.core.models import Thread
 
 
 def test_create_tables(test_engine):
